@@ -1,0 +1,25 @@
+receivers:
+  otlp:
+    protocols:
+      http:
+
+processors:
+  batch:
+
+exporters:
+  otlp:
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlp]
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlp]
+    logs:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlp]
